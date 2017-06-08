@@ -136,11 +136,10 @@
         }   
         i ++;    
     })
-    var j = $(".pre").index();
     $("input").eq(1).click(function(){
-        console.log(j);   
-        if(j == 0){
-            j = $("li").length-2;
+        console.log(i);   
+        if(i == 2){
+            i = $("li").length;
             $("li").each(function(){
                 $(this).removeClass();
             });
@@ -151,11 +150,11 @@
             $("li").each(function(){
                 $(this).removeClass();
             });
-            $("li").eq(j-1).addClass("pre");
-            $("li").eq(j).addClass("now");
-            $("li").eq(j+1).addClass("next");  
+            $("li").eq(i-3).addClass("pre");
+            $("li").eq(i-2).addClass("now");
+            $("li").eq(i-1).addClass("next");  
         }   
-        j --;    
+        i --;    
     })
 </script>
 </html>
