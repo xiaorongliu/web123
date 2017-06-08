@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>nav</title>
+    <style>
+        .nav{
+            width: 100%;
+            height: 142px;
+            margin: auto;
+        }
+        .nav-content{
+            width: 1000px;
+            height: 142px;
+            margin: auto;
+            background-image:url("img/bg_02.jpg");
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            float: left;
+            margin-left: 40px;
+            margin-right: 40px;
+            width: 107px;
+            height: 107px;
+            margin-top: 17px;
+            position: relative;
+        }
+        .a, .b{
+            position: absolute;
+            top:0;
+            left:0;
+            z-index: 100;
+            width: 107px;
+            height: 107px;
+        }
+        .c{
+            position: absolute;
+            top:0px;
+            left:0px;
+            margin-top: 20px; 
+            z-index: 500;
+            height: 42px;
+        }
+        .d{
+            position: absolute;
+            top:57px;
+            left:23px;
+            z-index: 500;
+            font-size: 15px;
+            color: #fff;
+            line-height: 45px;
+            width: 60px;
+            height: 45px;
+        }
+        li:nth-child(1) .a{
+            background-image: url("img/a_1.png");
+        }
+        li:nth-child(1) .b{
+            background-image: url("img/a_1_h1.png");
+            display: none;
+        }
+        li:nth-child(1) .c{
+            background-image: url("img/tb_1.png");
+            width: 46px;
+            margin-left:30px;   
+        }
+        li:nth-child(2) .a{
+            background-image: url("img/a_2.png");
+        }
+        li:nth-child(2) .b{
+            background-image: url("img/a_2_h1.png");
+            display: none;
+        }
+        li:nth-child(2) .c{
+            background-image: url("img/tb_2.png");
+            margin-left:33px;
+            width: 40px;
+        }
+
+        li:nth-child(3) .a{
+            background-image: url("img/a_3.png");
+        }
+        li:nth-child(3) .b{
+            background-image: url("img/a_3_h1.png");
+            display: none;
+        }
+        li:nth-child(3) .c{
+            background-image: url("img/tb_3.png");
+            width: 34px;
+            margin-left:36px;
+        }
+
+        li:nth-child(4) .a{
+            background-image: url("img/a_4.png");
+        }
+        li:nth-child(4) .b{
+            background-image: url("img/a_4_h1.png");
+            display: none;
+        }
+        li:nth-child(4) .c{
+            background-image: url("img/tb_4.png");
+            width: 41px;
+            margin-left:33px;
+        }
+        li:nth-child(5) .a{
+            background-image: url("img/a_5.png");
+        }
+        li:nth-child(5) .b{
+            background-image: url("img/a_5_h1.png");
+            display: none;
+        }
+        li:nth-child(5) .c{
+            background-image: url("img/tb_5.png");
+            width: 44px;
+            margin-left:31px;
+        }
+        li:hover .a{
+            display: none;
+        }
+        li:hover .b{
+            z-index: 500;
+            display: block;
+            animation: zhuan 1s linear 0s normal;
+        }
+        li:hover .a{
+            display: none;
+        }
+         @-webkit-keyframes zhuan {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="nav-content">
+            <ul>
+                <li>
+                    <div class="a"></div>
+                    <div class="b"></div>
+                    <div class="c"></div>
+                    <div class="d">我要约考</div>
+                </li>
+                <li>
+                    <div class="a"></div>
+                    <div class="b"></div>
+                    <div class="c"></div>
+                    <div class="d">班型介绍</div>
+                </li>
+                <li>
+                    <div class="a"></div>
+                    <div class="b"></div>
+                    <div class="c"></div>
+                    <div class="d">班车服务</div>
+                </li>
+                <li>
+                    <div class="a"></div>
+                    <div class="b"></div>
+                    <div class="c"></div>
+                    <div class="d">在线法培</div>
+                </li>
+                <li>
+                    <div class="a"></div>
+                    <div class="b"></div>
+                    <div class="c"></div>
+                    <div class="d">网上约车</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

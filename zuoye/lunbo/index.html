@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lunbo</title>
+    <style>
+        .lunbo{
+            width: 100%;
+            height: 248px;
+        }
+        .lunbo-content{
+            width: 900px;
+            height: 244px;
+            margin: auto;
+            margin-top:200px;
+            position: relative;
+            border: 2px solid #000;
+        }
+        ul{
+            width: 2304px;
+            height: 244px;
+            list-style: none;
+            position: absolute;
+            position: relative;
+            top:-16px;
+            left:-40px;
+            perspective: 800px;
+        }
+        li{
+            width: 300px;
+            height: 240px;
+            float: left;
+            margin-left:50px;
+            margin-right:50px;
+            display: none;
+            border:2px solid red;
+            box-shadow:0 0 8px rgba(241,39,232,.5);
+        }
+        input{
+            width:60px;
+            height: 40px;
+            font-size: 26px;
+            line-height: 20px;
+            float: left;
+            margin-left: 400px;
+            margin-top: 50px;
+        }
+        li:nth-child(1){
+            background-image: url("image/1.jpg");
+        }
+        li:nth-child(2){
+            background-image: url("image/2.jpg");
+        }
+        li:nth-child(3){
+            background-image: url("image/3.jpg");
+        }
+        li:nth-child(4){
+            background-image: url("image/4.jpg");
+        }
+        li:nth-child(5){
+            background-image: url("image/5.jpg");
+        }
+        li:nth-child(6){
+            background-image: url("image/1.jpg");
+        }
+        li:nth-child(7){
+            background-image: url("image/2.jpg");
+        }
+        .pre{
+            transform:  rotateY(20deg) scale(0.8, 1);
+            z-index:1;
+            position: absolute;
+            top:0;
+            left:12px;
+            display: block;
+        }
+        .now{
+            transform: scale(1.3, 1);
+            z-index:800;
+            position: absolute;
+            top:0;
+            left:310px;
+            display: block;  
+        }
+        .next{
+            transform:  rotateY(-20deg);
+            z-index:1;
+            position: absolute;
+            top:0;
+            left:608px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="lunbo">
+        <div class="lunbo-content">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <input type="button" value="<">
+        <input type="button" value=">">
+    </div>
+</body>
+<script src="jquery.js"></script>
+<script>
+    $("li").eq(0).addClass("pre");
+    $("li").eq(1).addClass("now");
+    $("li").eq(2).addClass("next");
+    var i = $(".next").index();
+    $("input").eq(0).click(function(){  
+        if(i == $("li").length-1){
+            i = 2;
+            $("li").each(function(){
+                $(this).removeClass();
+            });
+            $("li").eq(0).addClass("pre");
+            $("li").eq(1).addClass("now");
+            $("li").eq(2).addClass("next");
+        }else{
+            $("li").each(function(){
+                $(this).removeClass();
+            });
+            $("li").eq(i-1).addClass("pre");
+            $("li").eq(i).addClass("now");
+            $("li").eq(i+1).addClass("next");  
+        }   
+        i ++;    
+    })
+    var j = $(".pre").index();
+    $("input").eq(1).click(function(){
+        console.log(j);   
+        if(j == 0){
+            j = $("li").length-2;
+            $("li").each(function(){
+                $(this).removeClass();
+            });
+            $("li").eq($("li").length-3).addClass("pre");
+            $("li").eq($("li").length-2).addClass("now");
+            $("li").eq($("li").length-1).addClass("next");
+        }else{
+            $("li").each(function(){
+                $(this).removeClass();
+            });
+            $("li").eq(j-1).addClass("pre");
+            $("li").eq(j).addClass("now");
+            $("li").eq(j+1).addClass("next");  
+        }   
+        j --;    
+    })
+</script>
+</html>
+ <!--(function(){
+// 	var i = 0;
+// 	var line = $(".lunbodown ul li");
+//     var liner = $(".lunbodown ul li div");
+//     var left = $(".imgbox .leftbtn .leftbtn-c");
+//     var right = $(".imgbox .rightbtn .rightbtn-c");
+//     liner[0].style.background="#45494d";
+// 	function next(){
+// 		 i++;
+// 		$(".imgbox ul").animate({"left" : -1000 * i},500,function(){
+//             if (i > 7) {
+//                    i = 0;
+//                    $(this).css("left",0);
+//             }
+//             for(var k=0; k<line.length; k++){
+//      	 		liner[k].style.background = "#e8e8e8";
+//      	 	}
+//      	 	liner[i].style.background="#45494d";
+//         })   
+//    	} 
+//    	var time = setInterval(next,5000);
+//    	//-----------下标------------
+//     for(var j=0; j<line.length; j++){
+//      	line.click(function(){
+//      	 	i = $(this).index();
+//      	 	clearInterval(time);
+//      	 	$(".imgbox ul").animate({"left" : -1000 * i},20);
+//      	 	    for(var k=0; k<line.length; k++){
+//      	 	 	  liner[k].style.background = "#e8e8e8";
+//      	 	    }
+//      	 	    liner[i].style.background="#45494d";   	 	
+//      	 	time = setInterval(next,5000);
+//      	});
+//     }   
+//     //--------------左右切换-----------
+//     left.click(function(){
+//     	clearInterval(time);
+//     	if(i == 0){
+//     		i = 7;
+//     		$(".imgbox ul").animate({"left" : -1000 * i},20);
+//     		for(var k=0; k<line.length; k++){
+//      	 		liner[k].style.background = "#e8e8e8";
+//      	 	}
+//      	 	liner[i].style.background = "#45494d";
+//     	}else{
+//     		i -= 1;
+//     		$(".imgbox ul").animate({"left" : -1000 * i},20);
+//     		for(var k=0; k<line.length; k++){
+//      	 		liner[k].style.background = "#e8e8e8";
+//      	 	}
+//      	 	liner[i].style.background = "#45494d";
+//     	}
+//     	time = setInterval(next,5000);    	
+//     })
+//     right.click(function(){
+//     	clearInterval(time);
+//     	if(i == 7){
+//     		i = 0;
+//     		$(".imgbox ul").animate({"left" : -1000 * i},20);
+//     		for(var k=0; k<line.length; k++){
+//      	 		liner[k].style.background = "#e8e8e8";
+//      	 	}
+//      	 	liner[i].style.background = "#45494d";
+//     	}else{
+//     		i += 1;
+//     		$(".imgbox ul").animate({"left" : -1000 * i},20);
+//     		for(var k=0; k<line.length; k++){
+//      	 		liner[k].style.background = "#e8e8e8";
+//      	 	}
+//      	 	liner[i].style.background = "#45494d";
+//     	}
+//     	time = setInterval(next,5000);    	
+//     })
+//     //---------------左右切换隐藏----------
+//     $(".imgbox").mouseenter(function(){
+//     	$(".imgbox .leftbtn .leftbtn-n").css("display","block");
+//     	$(".imgbox .rightbtn .rightbtn-n").css("display","block");
+//     })
+//     $(".imgbox").mouseleave(function(){
+//     	$(".imgbox .leftbtn .leftbtn-n").css("display","none");
+//     	$(".imgbox .rightbtn .rightbtn-n").css("display","none");
+//     })
+//     $(".imgbox .leftbtn").mouseenter(function(){
+//     	$(".imgbox .leftbtn .leftbtn-c").css("display","block");
+//     })
+//     $(".imgbox .leftbtn").mouseleave(function(){
+//     	$(".imgbox .leftbtn .leftbtn-c").css("display","none");
+//     })
+//     $(".imgbox .rightbtn").mouseenter(function(){
+//     	$(".imgbox .rightbtn .rightbtn-c").css("display","block");
+//     })
+//     $(".imgbox .rightbtn").mouseleave(function(){
+//     	$(".imgbox .rightbtn .rightbtn-c").css("display","none");
+//     })
+// })();-->
