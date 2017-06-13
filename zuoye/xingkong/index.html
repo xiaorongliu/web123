@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>一闪一闪亮晶晶</title>
+    <script src="https://cdn.bootcss.com/konva/1.6.3/konva.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+    </div>
+</body>
+<script>
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    var container = document.getElementById("container");
+    function star() {    
+        var scale = Math.random();
+        var nump = Math.floor(Math.random()*3)+5;
+        var innerr = Math.floor(Math.random()*5)+8;
+        var outerr = Math.floor(Math.random()*5)+20;
+        var star = new Konva.Star({
+            x: Math.random() * stage.getWidth(),
+            y: Math.random() * stage.getHeight(),  
+            numPoints: nump,
+            innerRadius: innerr,
+            outerRadius: outerr,
+            fill: '#fff',
+            opacity: Math.random()*0.3+0.7,
+            draggable: true,
+            scale: {
+                x: scale,
+                y: scale
+            },
+            rotation: Math.random() * 180,
+            shadowColor: '#fff',
+            shadowBlur: 5,
+            shadowOffset: {
+                x: 3,
+                y: 3
+            },
+            shadowOpacity: 0.4,
+            startScale: scale
+        })
+        layer.add(star);
+        //--------动画--------
+    //     var anim = new Konva.Animation(function(frame) {
+    //         star.opacity(Math.random()*0.7+0.3);      
+    //     }, layer);
+    //     setInterval(function(){
+    //         anim.start(); 
+    //         setInterval(function(){
+    //             anim.stop();
+    //         },100)
+    //     },1000)
+    // }
+    var anim = new Konva.Animation(function(frame) {
+        var aaa = Math.random()>0.05?1:0;
+        star.opacity(aaa);      
+    }, layer);
+    setInterval(function(){
+        anim.start(); 
+        setInterval(function(){
+            anim.stop();
+        },80)
+    },1000)
+    }
+    var stage = new Konva.Stage({
+        container: 'container',
+        width: width,
+        height: height
+    })
+    var layer = new Konva.Layer();
+
+    for (var i = 0; i <200; i++) {
+        star()
+
+    }
+    stage.add(layer);
+</script>
+
+</html>

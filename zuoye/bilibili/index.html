@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>啊呀呦</title>
+    <style>
+        #name{
+            font-size: 30px;
+            color:red;
+            margin: 20px 470px;
+        }
+        #input{
+            width: 400px;
+            height: 30px;
+            margin: 20px auto;
+            display: block;
+        }
+        #submit{
+            width:50px;
+            height: 30px;
+            margin:20px auto;
+            display: block;
+        }
+        #block{
+            width:1000px;
+            height: 400px;
+            margin:20px auto;
+        }
+        #img{
+            width: 300px;
+            height: 30px;
+            font-size: 16px;
+            color:cyan;
+            margin: 20px auto;
+            display: none;
+        }
+        #canvas{
+             margin:auto;
+             display: block;
+        }
+        #button{
+            width: 80px;
+            height: 40px;
+            margin: 20px auto;
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="name">请输入你的姓名：</div>
+    <input id="input">
+    <input type="submit" id="submit">
+    <div id="block">
+        <canvas id="canvas" width="300" height="300"></canvas>
+        <div id="img">友情提示：鼠标长按可打开图片</div>
+        <input type="button" value="再测一次" id="button">
+    </div>
+</body>
+<script>
+    var oinput = document.getElementById("input");
+    var osubmit = document.getElementById("submit");
+    var canvas = document.getElementById("canvas");
+    var oimage = document.getElementById("img");
+    var obutton = document.getElementById("button");
+    var c = canvas.getContext("2d");
+    function ocanvas(){
+        c.strokeStyle = "#fff";
+        c.beginPath();
+        c.fillRect(0,0,300,300);
+        c.font = "20px SimSun";
+        c.strokeText("同学:",100,20);
+        c.strokeText("你的智商为：",20,100);
+        c.closePath();
+    }
+    function oimg(){
+        c.clearRect(0,0,300,300);
+        ocanvas();
+        var oimg = oinput.value;
+        var num = Math.floor(Math.random()*90)+60;
+        var iq1 = "我的天哪，你真是个天才！";
+        var iq2 = "哎呦，还不错哦！";
+        var iq3 = "快给你的智商充点值吧！";
+        var iq = 0;
+        num<90?iq=iq3:num>120?iq=iq1:iq=iq2;
+        console.log(num);
+        console.log(iq);
+        c.beginPath();
+        c.font = "20px SimSun";
+        c.strokeText(oimg,20,20);
+        c.font = "40px SimSun";
+        c.strokeText(num+"分",70,170);
+        c.font = "20px SimSun";
+        c.strokeText(iq,20,250);
+        c.closePath();
+        canvas.onmousedown = function(){
+            setTimeout(function(){
+                window.open(canvas.toDataURL());
+            },2000)
+        }
+    }
+    osubmit.onclick=function(){
+        if(oinput.value){
+            oimg();
+            oimage.style.display="block";
+        }else{
+            alert("请先输入姓名");
+        }
+    }
+     obutton.onclick=function(){
+        window.location.reload();
+     }
+</script>
+</html>
