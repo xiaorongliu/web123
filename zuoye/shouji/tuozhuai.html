@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .img{
+        width: 400px;
+        height: 200px;
+        background-image: url("../xiecheng/img/1.png");
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="img"></div>
+</body>
+<script>
+    var box = document.querySelector('.box');
+    var deltaY=0, deltaX=0;
+    document.addEventListener("touchstart", function(ev) {
+        var aaa = ev.touches[0].clientX;
+        var bbb = ev.touches[0].clientY;
+        console.log(aaa)
+        document.addEventListener("touchmove", function(ev,delta) {
+        // ev.preventDefault(); 
+        console.log(deltaX)//这是组织默认事件 如果不阻止这个事件，可能两个手机放大...
+            deltaX += (ev.touches[0].clientX - aaa);
+            deltaY += (ev.touches[0].clientY - bbb);
+
+    })
+
+    
+        
+           
+        
+    })
+
+    document.addEventListener("touchend", function(ev) {
+        ev.preventDefault();
+        box.innerHTML = "结束了touch！！";
+    })
+</script>
+
+</html>
