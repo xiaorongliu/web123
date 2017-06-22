@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>旅游景点查询</title>
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+    <script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
+    <script src="http://webapi.amap.com/maps?v=1.3&key=6a84f445383a52498ae4b6c092cd275b"></script>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+    <style>
+        #mapindex{
+            width: 100%;
+            height: 90%;
+            margin-top:10px;
+        }
+        #position{
+            width:40%;
+            height: 5%;
+            float: left;
+            margin: auto 15%;
+        }
+        #search{
+            width: 15%;
+            height: 5%;
+            float: left;
+            margin: auto;
+        }
+        #container {
+            width: 90%;
+            height: 80%;
+            border: 1px solid #000;
+            margin:auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="mapindex">
+        <input id="position" placeholder="请输入您要去的景点"/>
+        <input id="search" type="button" value="查询"/>
+        <div id="container"></div>
+    </div>
+</body>
+<script charset="utf-8" src="../js/jquery.js"></script>
+<script src="http://apps.bdimg.com/libs/underscore.js/1.7.0/underscore-min.js" charset="utf-8"></script>
+<script>
+    var marker, map = new AMap.Map("container", {
+        resizeEnable: true,
+        center: [116.397428, 39.90923],
+        zoom: 13
+    });
+    //--------------------------
+    navigator.geolocation.getCurrentPosition(function(postion) {
+        var x = postion.coords.longitude;
+        var y = postion.coords.latitude;
+        console.log(x + ' ' + y);
+    })
+    //--------------------------
+    var search = document.getElementById("search");
+    var position = document.getElementById("position");
+    var postionName;
+    var arr1 = [];
+    var arr2 = [];
+    var arr3 = [];
+    $(search).click(function(){
+        postionName = $(position).val(); 
+        $.ajax({
+            url:"http://route.showapi.com/268-1?showapi_appid=40760&showapi_sign=acb2ed6669e645d990bb0c487f345357",
+            type: 'get',
+            dataType: 'json',
+            data:{
+                keyword:postionName
+            },
+            success:function(data){
+                var obj = data.showapi_res_body.pagebean.contentlist;
+                console.log(obj);
+                console.log(arr1);
+                $.each(obj,function(index,value) {
+                    arr1.push(obj[index].location.lat);
+                    arr2.push(obj[index].location.lon);
+                    arr3.push(obj[index].name)
+                });
+                if(arr1.length == 0){
+                    alert("对不起，未查询到您输入的景点信息，请核对后重新输入");
+                }else{
+                    for(var i = 0; i<arr1.length;i++){
+                        marker = new AMap.Marker({
+                            icon: "http://webapi.amap.com/theme/v1.3/markers/n/mark_b.png",
+                            position: [arr2[i], arr1[i]],
+                        });
+                        marker.setMap(map);
+                        marker.setLabel({
+                            offset: new AMap.Pixel(20, 0),
+                            content: arr3[i]
+                        }); 
+                    }
+                }
+            }
+        }) 
+    })
+</script>
+</html>
