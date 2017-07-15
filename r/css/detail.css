@@ -76,7 +76,7 @@
     opacity: 0.4;
 }
 
-.r-index-map-text {
+.r-index-map-text,.r-index-tree-text {
     float: left;
     margin-left: 0.8rem;
     font-size: 0.6rem;
