@@ -1,0 +1,111 @@
+.small-font {
+    font-size: 12px;
+    -webkit-transform-origin-x: 0;
+    -webkit-transform: scale(0.50);
+}
+
+.smallsize-font {
+    font-size: 5px;
+}
+
+.r-index-head-img img {
+    width: 100%;
+    height: auto;
+}
+
+.r-index-text {
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+    width: 100%;
+}
+
+.r-index-name {
+    font-size: 0.8rem;
+    width: 100%;
+    line-height: 1.2rem;
+}
+
+.r-index-price {
+    width: 100%;
+    font-size: 0.7rem;
+    color: red;
+    font-weight: bold;
+    line-height: 1.2rem;
+}
+
+.r-index-else {
+    width: 100%;
+    margin-top: 0.7rem;
+}
+
+.r-index-else ul li {
+    width: 100%;
+    height: 1.2rem;
+    list-style: none;
+}
+
+.r-index-tree {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.r-index-map {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.r-index-tree-img,
+.r-index-date-img,
+.r-index-map-img {
+    width: 1rem;
+    height: 1rem;
+    float: left;
+    margin-top: 0.1rem;
+    margin-left: 1rem;
+}
+
+.r-index-date-img {
+    margin-left: -9rem;
+}
+
+.r-index-date-text {
+    margin-left: -7rem;
+}
+
+.r-index-tree-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.r-index-date-img img,
+.r-index-map-img img {
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+}
+
+.r-index-map-text {
+    float: left;
+    margin-left: 0.8rem;
+    font-size: 0.6rem;
+    line-height: 1.2rem;
+}
+
+.r-index-date-text {
+    float: left;
+    /*margin-left: 1rem;*/
+    font-size: 0.5rem;
+    line-height: 1.2rem;
+    -webkit-transform-origin-x: 0;
+    -webkit-transform: scale(0.50);
+    font-size: 0.5rem;
+}
+
+.r-index-date-text p {
+    float: left;
+}
+
+.r-index-date-text-one {
+    color: #ccc;
+    font-size: 0.5rem;
+}

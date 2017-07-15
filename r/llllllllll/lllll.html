@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>码高研学营</title>
+    <style>
+        /*@media all and (min-width:1200px) {
+            html {
+                font-size: 29px;
+            }
+        }
+        
+        @media all and (min-width:1024px) and (max-width:1199px) {
+            html {
+                font-size: 22px;
+            }
+        }
+        
+        @media all and (min-width:768px) and (max-width:1023px) {
+            html {
+                font-size: 17px;
+            }
+        }
+        
+        @media all and (min-width:400px) and (max-width:767px) {
+            html {
+                font-size: 9px;
+            }
+        }
+        
+        @media all and (min-width:321px) and (max-width:399px) {
+            html {
+                font-size: 6px;
+            }
+        }
+        
+        @media all and (min-width:220px) and (max-width:320px) {
+            html {
+                font-size: 5px;
+            }
+        }
+        
+        @media all and (max-width:219px) {
+            html {
+                font-size: 2px;
+            }
+        }*/
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-size: 16px;
+        }
+        
+        #details {
+            width: 93%;
+            margin: auto;
+        }
+        
+        #details-one {
+            width: 100%;
+            /*height: 7.5rem;*/
+        }
+        
+        .details-one-head {
+            width: 100%;
+            /*height: 3rem;*/
+            font-size: 0.8rem;
+            line-height: 1.5rem;
+            color: #408ce0;
+            border-bottom: 2px solid #408ce0;
+        }
+        
+        .details-one-body {
+            margin-top: 0.75rem;
+            width: 100%;
+            height: 3rem;
+            border: 1px solid #ccc;
+        }
+        
+        .details-one-body-left {
+            width: 0;
+            height: 0;
+            border: 0.5rem solid #fff;
+            border-left-color: #26e327;
+            border-top-color: #26e327;
+            float: left;
+            position: relative;
+        }
+        
+        .details-one-body-left div {
+            position: absolute;
+            left: -0.4rem;
+            top: -0.6rem;
+        }
+        
+        .details-one-body-left div p {
+            font-size: 0.4rem;
+            color: #fff;
+            float: left;
+        }
+        
+        .details-one-body-right {
+            width: 90%;
+            /*height: 3rem;*/
+            margin: auto;
+            margin-left: 1rem;
+            font-size: 0.4rem;
+            float: left;
+        }
+        
+        .actintro-text {
+            width: 20rem;
+            height: 6rem;
+            margin: 0.7rem auto;
+            font-size: 0.6rem;
+            line-height: 1rem;
+            text-align: center;
+        }
+        
+        .actintro-text p {
+            color: #19d871;
+            text-align: center;
+            margin: 0 auto;
+        }
+        
+        .actintro-title {
+            width: 100%;
+            height: 3.9rem;
+            background: #53da8e;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .actintro-title-text {
+            font-size: 0.6rem;
+            width: 100%;
+            text-align: center;
+            margin: 1rem auto;
+        }
+        
+        .actintro-title-one {
+            width: 3rem;
+            height: 3rem;
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            left: -1.8rem;
+            top: -1.5rem;
+        }
+        
+        .actintro-title-two {
+            width: 3rem;
+            height: 3rem;
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            right: -1.8rem;
+            top: -1.5rem;
+        }
+        
+        .actintro-title-three {
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            left: -0.75rem;
+            top: 3.2rem;
+        }
+        
+        .actintro-title-four {
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            right: -0.75rem;
+            top: 3.2rem;
+        }
+        
+        .actintro-img {
+            width: 14rem;
+            height: 14rem;
+            margin: auto;
+            margin-top: 0.31rem;
+        }
+        
+        .actintro-img-one,
+        .actintro-img-two,
+        .actintro-img-three,
+        .actintro-img-four {
+            width: 6rem;
+            height: 6rem;
+            margin: 0.2rem;
+            float: left;
+        }
+        
+        .actintro-img-one {
+            border-radius: 50% 50% 0 50%;
+            background-image: url("../img/dripimg-one.gif");
+        }
+        
+        .actintro-img-two {
+            border-radius: 50% 50% 50% 0;
+            background-image: url("../img/dripimg-two.gif");
+        }
+        
+        .actintro-img-three {
+            border-radius: 50% 0 50% 50%;
+            background-image: url("../img/dripimg-three.gif");
+        }
+        
+        .actintro-img-four {
+            border-radius: 0 50% 50% 50%;
+            background-image: url("../img/dripimg-four.gif");
+        }
+    </style>
+</head>
+
+<body>
+    <div id="details">
+        <div id="details-one">
+            <div class="details-one-head">优惠活动</div>
+            <div class="details-one-body">
+                <div class="details-one-body-left">
+                    <div>
+                        <p>1</p>
+                    </div>
+                </div>
+                <div class="details-one-body-right">您可以参加5人团或10人团，您报名缴费成功后将链接发送至5位朋友并5位朋友全部成功报名，即刻享受原价八五折的优惠哟~~还在等什么？立刻报名参加吧~~</div>
+            </div>
+        </div>
+        <div id="details-two">
+            <div class="details-one-head">活动介绍</div>
+            <div class="actintro-text">说起飞行器你会想起什么？</br>一张大白纸三两下折出来的纸飞机？</br>塑料袋和冰棒棍粘出来的简易航模？</br>乐高零件拼插出来的复杂模型？
+                </br>low&nbsp;low&nbsp;low&nbsp;
+                <p>少年，来一起做无人机吧。</p>
+            </div>
+            <div class="actintro-title">
+                <p class="actintro-title-text">码高科技——周末营</br>无人机</p>
+                <div class="actintro-title-one"></div>
+                <div class="actintro-title-two"></div>
+                <div class="actintro-title-three"></div>
+                <div class="actintro-title-four"></div>
+            </div>
+            <div class="actintro-img">
+                <div class="actintro-img-one"></div>
+                <div class="actintro-img-two"></div>
+                <div class="actintro-img-three"></div>
+                <div class="actintro-img-four"></div>
+            </div>
+            <div class="actintro-else">
+
+            </div>
+        </div>
+        <div id="details-three"></div>
+        <div id="details-four"></div>
+
+</body>
+
+</html>
